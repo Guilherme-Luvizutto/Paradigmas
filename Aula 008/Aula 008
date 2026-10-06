@@ -1,0 +1,96 @@
+Código 1 - Python
+def adicionar(item, lista=[]):
+
+    lista.append(item)
+    return lista
+
+print(adicionar(1))
+print(adicionar(2))
+
+Saída: [1]
+       [1, 2]
+
+Conceito: parâmetros com valor padrão e passagem por atribuição.
+
+Código 2 - Java
+import java.util.*;
+
+public class Main {
+  static void zera(int[] v, int n) {
+    v[0] = 0;
+    n = 0;
+  }
+
+
+  public static void main(String[] args) {
+    int[] v = {5, 5}; int n = 5;
+    zera(v, n);
+    System.out.println(v[0] + " " + n);
+  }
+}
+
+Saída: 0 5
+
+Conceito: passagem de parâmetros por valor
+
+Código 3 - Python 
+fs = [lambda: i for i in range(3)]
+print([f() for f in fs])
+
+Saída: [2, 2, 2]
+
+Conceito: fechamento (closure)
+
+Código 4 - C
+#include <stdio.h>
+
+int contador(void) {
+static int n = 0;
+return ++n;
+}
+int main()
+{
+    contador(); 
+    contador();
+    printf("%d\n", contador());
+}
+
+Saída: 3
+
+Conceito: variável local estática
+
+Código 5 - Rust
+fn dobra(v: &Vec<i32>) -> Vec<i32> {
+    v.iter().map(|x| x * 2).collect()
+}
+
+fn main() {
+    let v = vec![1, 2, 3];
+    let d = dobra(&v);
+    println!("{:?} {:?}", v, d);
+}
+
+Saída: [1, 2, 3] [2, 4, 6]
+
+Conceito: modo de passagem por posse (move)
+
+Código 6: Python
+total = 0
+
+def adiciona(x):
+    total = total + x
+    return total
+    
+print(adiciona(5))
+
+Saída: 
+Traceback (most recent call last):
+  File "/box/main.py", line 7, in <module>
+    print(adiciona(5))
+          ^^^^^^^^^^^
+  File "/box/main.py", line 4, in adiciona
+    total = total + x
+            ^^^^^
+UnboundLocalError: cannot access local variable 'total' where it is not associated with a value
+
+Conceito: ambiente de referenciamento local e o escopo
